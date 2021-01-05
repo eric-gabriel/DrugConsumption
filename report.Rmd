@@ -1,0 +1,861 @@
+---
+title: "Prediction of Drug Consumption Based on Five Factor Personality Features"
+author: "Eric Gabriel"
+date: "January 5th, 2021"
+output:
+  pdf_document:
+    toc: true
+    highlight: tango
+references:
+- id: dataset
+  title: The Five Factor Model of personality and evaluation of drug consumption risk
+  author:
+  - family: Fehrman
+    given: E.
+  - family: Muhammad
+    given: A. K.
+  - family: Mirkes
+    given: E. M.
+  - family: Egan
+    given: V.
+  - family: Gorban
+    given: A. N.
+  publisher: Springer, Cham
+  type: article-journal
+  container-title: Data Science
+  URL: https://arxiv.org/abs/1506.06297
+  issued:
+    year: 2015
+- id: impss
+  title: Behavioral expressions and biosocial bases of sensation seeking
+  author:
+  - family: Zuckerman
+    given: M.
+  container-title: Cambridge University Press
+  type: book
+  issued:
+    year: 1994
+- id: deaths
+  title:  Priority actions for the non-communicable disease crisis
+  author:
+  - family: Beaglehole
+    given: R.
+  - family: Horton
+    given: R.
+  - family: Adams
+    given: C.
+  - family: Alleyne
+    given: G.
+  - family: Asaria
+    given: P.
+  - family: Baugh
+    given: V.
+  - family: Bekedam
+    given: H.
+  - family: Billo
+    given: N.
+  - family: Casswell
+    given: S.
+  container-title: The Lancet
+  volume: 377
+  issue: 9775
+  page: 1438-1447
+  type: article-journal
+  issued:
+    year: 2011
+- id: bis11
+  title:  Fifty years of the Barratt Impulsiveness Scale -- An update and review
+  author:
+  - family: Stanford
+    given: M. S.
+  - family: Mathias
+    given: C. W.
+  - family: Dougherty
+    given: D. M.
+  - family: Lake
+    given: S. L.
+  - family: Anderson
+    given: N. E.
+  - family: Patton
+    given: J. H.
+  container-title: Personality and Individual Differences
+  volume: 47
+  issue: 5
+  page: 385-395
+  type: article-journal
+  issued:
+    year: 2009    
+- id: drug
+  title:  Drugs and Drug Policy - What Everyone Needs to Know
+  author:
+  - family: Kleiman
+    given: M. A.
+  - family: Caulkins
+    given: J. P.
+  - family: Hawken
+    given: A
+  container-title: Oxford University Press
+  type: book
+  issued:
+    year: 2011
+- id: neo-ffi-r
+  title:  Revised NEO-Personality Inventory (NEO PI-R) and NEO Five-Factor Inventory (NEO FFI)
+  author:
+  - family: Costa
+    given: P. T.
+  - family: MacCrae
+    given: R. R.
+  container-title: Professional Manual. Odessa, FL, Psychological Assessment Resources
+  type: book
+  issued:
+    year: 1992
+- id: pcor1
+  title:  A two-stage estimation of structural equation models with continuous and polytomous variables
+  author:
+  - family: Lee
+    given: S. Y.
+  - family: Poon
+    given: W. Y.
+  - family: Bentler
+    given: P. M.
+  container-title: British Journal of Mathematical and Statistical Psychology
+  volume: 48
+  issue: 2
+  page: 339 - 358
+  type: article-journal
+  issued:
+    year: 1995
+- id: pcor2
+  title:  Maximum likelihood and some other asymptotically efficient estimators of correlation in two way contingency tables
+  author:
+  - family: Martinson
+    given: E. O.
+  - family: Hamdan
+    given: M. A.
+  container-title: Journal of Statistical Computation and Simulation
+  volume: 1
+  issue: 1
+  page: 45-54
+  type: article-journal
+  issued:
+    year: 1971
+- id: catpca
+  title:  Nonlinear Principal Component Analysis with CatPCA - A Tutorial
+  author:
+  - family: Linting
+    given: M.
+  - family: van der Kooij
+    given: A.
+  container-title: Journal of Personality Assessment
+  volume: 94
+  issue: 1
+  page: 12 - 25
+  type: article-journal
+  issued:
+    year: 2012
+- id: bglm1
+  title:  Boosting with the L2 loss - regression and classification
+  author:
+  - family: Buehlmann
+    given: Peter
+  - family: Yu
+    given: Bin
+  container-title: Journal of the American Statistical Association
+  volume: 98
+  issue: 462
+  page: 324 - 339
+  type: article-journal
+  issued:
+    year: 2003
+- id: bglm2
+  title:  Boosting for high-dimensional linear models
+  author:
+  - family: Buehlmann
+    given: Peter
+  container-title: The Annals of Statistics
+  volume: 34
+  issue: 2
+  page: 559 - 583
+  type: article-journal
+  issued:
+    year: 2006
+- id: bglm3
+  title:  Boosting algorithms - regularization, prediction and model fitting
+  author:
+  - family: Buehlmann
+    given: Peter
+  - family: Hothorn
+    given: Torsten
+  container-title: Statistical Science
+  volume: 22
+  issue: 4
+  page: 477 - 505
+  type: article-journal
+  issued:
+    year: 2007
+- id: knn1
+  title:  Discriminatory Analysis - Nonparametric Discrimination - Consistency Properties
+  author:
+  - family: Fix
+    given: Evelyn
+  - family: Hodges
+    given: Joseph L.
+  container-title: USAF School of Aviation Medicine, Randolph Field, Texas.
+  type: book
+  issued:
+    year: 1951
+- id: knn2
+  title:  An introduction to kernel and nearest-neighbor nonparametric regression
+  author:
+  - family: Altman
+    given: Naomi S.
+  container-title: The American Statistician
+  volume: 46
+  issue: 3
+  page: 175 - 185
+  type: article-journal
+  issued:
+    year: 1992
+- id: rf1
+  title:  Random Decision Forests
+  author:
+  - family: Ho
+    given: Tin Kam
+  container-title: Proceedings of the 3rd International Conference on Document Analysis and Recognition
+  volume: 1
+  type: article-journal
+  issued:
+    year: 1995
+- id: rf2
+  title:  Random Forests
+  author:
+  - family: Breiman
+    given: Leo
+  container-title: Machine Learning
+  volume: 45
+  issue: 1
+  page: 5 - 32
+  type: article-journal
+  issued:
+    year: 2001
+- id: rda
+  title: Regularized Discriminant Analysis
+  author:
+  - family: Friedman
+    given: J. H.
+  container-title: Journal of the American Statistical Association
+  volume: 84
+  issue: 405
+  page: 165 - 175
+  type: article-journal
+  issued:
+    year: 1989
+- id: lda
+  title: The Use of Multiple Measurements in Taxonomic Problems
+  author:
+  - family: Fisher
+    given: Ronald A.
+  container-title: Annals of Eugenics
+  volume: 7
+  issue: 2
+  page: 179 - 188
+  type: article-journal
+  issued:
+    year: 1939
+- id: qda
+  title: The Elements of Statistical Learning, Volume 2
+  author:
+  - family: Friedman
+    given: Jerome Hastie
+  - family: Tibshirani
+    given: Robert
+  container-title: Springer Series in Statistics, New York, NY, USA.
+  type: book
+  issued:
+    year: 2009
+- id: mahyoub
+  title:  Analysis of Drug Consumption Data Using Data Mining Techniques and a Predictive Model Using Multi-Label Classification
+  author:
+  - family: Mahyoub
+    given: Mohammed A.
+  - family: Lekham
+    given: Alaith Abu
+  - family: Alenany
+    given: Emad
+  - family: Tarawneh
+    given: Lubna
+  - family: Won
+    given: Daehan
+  container-title: Proceedings of the IISE Annual Conference
+  type: article-journal
+  issued:
+    year: 2019
+- id: dataset_uci
+  title: Drug Consumption (Quatified) at UCI Machine Learning Repository
+  URL: https://archive.ics.uci.edu/ml/datasets/Drug+consumption+%28quantified%29
+  type: Webpage
+  issued:
+    year: 2016
+---
+
+```{r setup, include=FALSE}
+# Do not output messages and warnings in the document
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+
+# Break lines after 80 characters
+options(width = 80)
+
+# Install missing libraries
+if(!require(tidyverse)) install.packages("tidyverse") 
+if(!require(knitr)) install.packages("knitr")
+if(!require(bookdown)) install.packages("bookdown")
+if(!require(ggplot2)) install.packages("ggplot2")
+if(!require(patchwork)) install.packages("patchwork")
+if(!require(corrplot)) install.packages("corrplot")
+
+# Load required libraries
+library(tidyverse)
+library(knitr)
+library(bookdown)
+library(ggplot2)
+library(patchwork)
+library(corrplot)
+
+# Source R script
+source("process_data.R")
+```
+
+# Abstract
+
+**In this report, we performed binary classification of users and non-users based on the Drug Consumption (Quantified) data set published by [@dataset]. This classification can be used to assess the risk of an individual being a user of a specific drug based on personality features. After an exploratory data analysis (EDA), we decided on three drugs and four different classes of models for evaluation.**
+
+**The best performance was achieved using regularized discriminant analysis (RDA) models: We report balanced accuracies of 66.5%, 79.2% and 73.2% for the drugs Benzodiazepines, Legal Highs and Ecstasy, respectively. The RDA model outperforms the results reported by [@mahyoub] and performs slightly worse than the highly optimized decision trees of [@dataset].**
+
+**A potential improvement is demonstrated by experimental results when using additional input features exploiting drug correlation. Further improvements are expected by using an optimal input feature sub-set for each drug as well as a more sophisticated tune grid for the used model types.**
+
+\newpage
+
+# Introduction
+
+This report is part of the second project submission of the course **HarvardX PH125.9x "Data Science: Capstone"**.
+
+Over a very large period of time, the medical advancement has led to a large variety of available drugs to cure or ease an even larger variety of diseases. On the downside, drug abuse is -- in most cases -- as old as the respective drug itself. Following [@drug], a drug is a chemical substance that impacts biological functionality apart from providing hydration or nutrition. The abuse of drugs, i.e., any use that is not medically indicated, puts the health of the respective individual at risk. Regarding legal drugs as alcohol and tobacco (nicotine), a negative impact on life expectancy can not be neglected [@deaths]. For many other drugs, the effect can be even worse.
+
+The ability to assess the risk of an individual abusing drugs and/or becoming a regular user based on personality data can highly support finding the right prevention strategy and to address the right target groups.
+
+The goal of this report is to generate and compare models that are able to predict a person being a user or non-user of a specific drug based on personality data.
+
+This report is structured as follows: We first describe the data set and perform an exploratory data analysis (EDA). Afterwards, three drugs are chosen for which we will train different classes of models. We will use insights from the EDA to choose appropriate models. The methodology, the experimental setup and the evaluation metrics are explained afterwards. In the following section, we present the results of the trained classifiers. The comparison between different models, different drugs and results from the literature is then discussed. After we present ideas for further improvements with one detailed example, the report closes with a summary.
+
+## Problem Statement
+
+The problem to be solved is the prediction of a person being a user or non-user of a specific drug on a given data set: Drug Consumption (Quantified). These predictions will be generated using different models that operate on a certain set of input features. We will use different types of models, different drugs and also other results from the literature for performance comparison.
+
+More specifically, the problem at hand is a binary classification task per examined drug type with supervised learning.
+
+# Data Set: Drug Consumption (Quantified)
+
+To classify users and non-users, the data set **Drug Consumption (Quantified)** [@dataset] is used. It can be downloaded from the UCI Machine Learning Repository [@dataset_uci].
+
+The data set was collected between March 2011 and March 2012 using an anonymous online survey tool. After an input validation, $1,885$ observations remain.
+
+The survey is split into questions regarding personal background, questions on personality information as well as questions about the use and recency of $18$ legal and illegal drugs (+ one fictitious drug to identify over-claimers):
+
+## Personal Information
+
+* **Age**: 18 - 24, 25 - 34, 35 - 44, 45 - 54, 55 - 64, 65+
+* **Gender**: Male, Female
+* **Education**: Left school before 16y, Left school at 16y, Left school at 17y, Left school at 18y, Some college or university (no certificate or degree), Professional certificate / Diploma, University degree, Master's Degree, Doctorate degree
+* **Country**
+* **Ethnicity**
+
+## Personality Information
+
+* $60$ questions of **Revised NEO Five Factor Inventory** (NEO-FFI-R) [@neo-ffi-r], $12$ per factor, $0$ - $5$ points each (strongly disagree - strongly agree):
+1. Neuroticism (**N**): Long-term tendency for negative emotions
+2. Extraversion (**E**): Outgoing, talkative, cheerful etc.
+3. Openness to Experience (**O**): Creative, imaginative, unusual ideas, art
+4. Agreeableness (**A**): Trust, modesty, kindness etc.
+5. Conscientiousness (**C**): Organized, dependable, reliable, efficient etc.
+
+* $30$ questions of Barrat Impulsiveness Scale (BIS-11) [@bis11] to measure motor and attentional impulsiveness.
+
+* $30$ questions of Impulsiveness Sensation-Seeking (ImpSS) [@impss]: $19$ true/false-statements to measure impulsiveness and $11$ items measuring sensation-seeking.
+
+## Drug Use
+
+The data set contains one of the following statements per individual for each of the $18$ legal and illegal drugs (plus one fictitious drug) about the recency of use (if applicable):
+
+* Never Used ("CL0")
+* Used over a Decade Ago ("CL1")
+* Used in Last Decade ("CL2")
+* Used in Last Year ("CL3")
+* Used in Last Month ("CL4")
+* Used in Last Week ("CL5")
+* Used in Last Day ("CL6")
+
+The $19$ drugs are the following:
+
+* Alcohol
+* Amphetamines
+* Amyl nitrite
+* Benzodiazepine
+* Cannabis
+* Chocolate
+* Cocaine
+* Caffeine
+* Crack
+* Ecstasy
+* Heroin
+* Ketamine
+* Legal highs
+* LSD
+* Methadone
+* Magic Mushrooms
+* Nicotine
+* Volatile substance abuse (VSA)
+* Semeron (fictitious drug to identify over-claimers)
+
+## Quantification
+
+All categorical features have been quantified by [@dataset], i.e., transformed into numerical features.
+
+The five scores of NEO-FFI-R have been converted into sample-based T-Scores with mean $50$ and standard deviation $10$ using:
+
+\begin{equation}
+\text{T-Score}_{\text{sample}} = 10 \biggl[ \frac{\text{Raw score} - \text{Sample mean}}{\text{Sample standard deviation}} \biggr] + 50
+\end{equation}
+
+The sample mean was chosen because *t*-tests have shown that the sample mean deviates significantly from the population mean. The use of sample-based T-Scores supports the analysis of classifying individuals into users and non-users in this data set. The reader is referred to [@dataset] for further details.
+
+Ordinal features were quantified using polychloric correlation [@pcor1] [@pcor2]. Here, the average probability is used for each interval.
+
+Nominal features such as gender and ethnicity were quantified using a non-linear categorical principal component analysis (CatPCA) [@catpca].
+
+Afterwards, all quantified features have been normalized such that they have a mean of 0 and a standard deviation of 1. Please see [@dataset] for further details.
+
+## Data Preparation and Pre-Processing
+
+The downloaded data set file is in CSV format and contains no header lines. Thus, we set the respective column names before displaying the data.
+
+Additionally, we convert the $19$ columns regarding the use of drugs into a numeric representation: 
+
+* Never Used (0)
+* Used over a Decade Ago (1)
+* Used in Last Decade (2)
+* Used in Last Year (3)
+* Used in Last Month (4)
+* Used in Last Week (5)
+* Used in Last Day (6)
+
+In order to perform binary classification per drug, [@dataset] suggest to call an individual a user if the drug was used within the last decade or more recently. This corresponds to a value $> 1$. Otherwise, the individual is a non-user. Following this approach, we add one column for each drug ("$<$DRUG_NAME$>$_User") with two factors each ("yes" and "no") indicating if the individual is a user or a non-user, respectively.
+
+```{r data}
+# Print the summary of the data set
+summary(data_clean)
+```
+
+```{r data2}
+# Print the first observations of the data set
+head(data_clean)
+```
+
+\newpage
+
+```{r data3}
+# Evaluate if NAs are present
+colSums(is.na(data_clean))
+```
+
+There are no *NA* values present in the data set, thus, no further pre-processing step is required.
+
+\newpage
+
+# Exploratory Data Analysis
+
+In this section, an exploratory data analysis (EDA) is conducted in order to gain further insights about the Drug Consumption (Quantified) data set. These insights and characteristics of the data set will then be used to choose the appropriate models that are most suitable for the problem at hand as well as the three drugs used for user/non-user classification.
+
+## Used Features {#features}
+
+For the classification of users and non-users, we will omit *country* and *ethnicity* in accordance to [@dataset]. Thus, ten input features remain:
+
+* Age
+* Gender
+* Education
+* N-Score (Neuroticism)
+* E-Score (Extraversion)
+* O-Score (Openness to Experience)
+* A-Score (Agreeableness)
+* C-Score (Conscientiousness)
+* Impulsiveness
+* Sensation-Seeking
+
+## Analysis Strategy
+
+First, we will show the general distributions of age, gender and education of the whole data set in order to provide an overall impression of the participants.
+
+Afterwards, we will select three drugs for evaluation based on the balance between users and non-users.
+
+For each of the selected drugs, we will then show box plots of the four most discriminative features.
+
+## Age
+
+```{r age_histogram, fig.cap="Histogram of 'Age'", fig.align='center', out.width = '50%'}
+# Plot histogram of age groups
+data_clean %>%
+  ggplot(aes(Age)) + 
+  geom_histogram()
+```
+
+| Value | Meaning |
+| :------------- | :----------: |
+| -0.95197 | 18 - 24 |
+| -0.07854 | 25 - 34 |
+| 0.49788 | 35 - 44 |
+| 1.09449 | 45 - 54 |
+| 1.82213 | 55 - 64 |
+| 2.59171 | 65+ |
+
+Table: Mapping of numeric values of 'Age'
+
+Figure \ref{fig:age_histogram} shows the histogram of age groups in the data set. The mapping of numerical values to their corresponding meaning is shown in Table 1 and was taken from [@dataset].
+
+The age groups are not normally distributed. Instead, the distribution is skewed to the left, i.e., towards younger age groups.
+
+## Gender
+
+```{r gender_histogram, fig.cap="Histogram of 'Gender'", fig.align='center', out.width = '50%'}
+# Plot histogram of gender
+data_clean %>%
+  ggplot(aes(Gender)) + 
+  geom_histogram()
+```
+
+| Value | Meaning |
+| :------------- | :----------: |
+| -0.48246 | Male |
+| 0.48246 | Female |
+
+Table: Mapping of numeric values of "Gender"
+
+Figure \ref{fig:gender_histogram} shows the histogram of genders in the data set. The mapping of numerical values to their corresponding meaning is shown in Table 2 and was taken from [@dataset].
+
+The genders "male" and "female" are uniformly distributed.
+
+## Education
+
+```{r education_histogram, fig.cap="Histogram of 'Education'", fig.align='center', out.width = '50%'}
+# Plot histogram of education
+data_clean %>%
+  ggplot(aes(Education)) + 
+  geom_histogram()
+```
+
+| Value | Meaning |
+| :------------- | :----------: |
+| -2.43591 | Left school before 16 years |
+| -1.73790 | Left school at 16 years |
+| -1.43719 | Left school at 17 years |
+| -1.22751 | Left school at 18 years |
+| -0.61113 | Some college or university, no certificate or degree |
+| -0.05921 | Professional certificate / diploma |
+| 0.45468 | University degree |
+| 1.16365 | Masters degree |
+| 1.98437 | Doctorate degree |
+
+Table: Mapping of numeric values of "Education"
+
+Figure \ref{fig:education_histogram} shows the histogram of educations in the data set. The mapping of numerical values to their corresponding meaning is shown in Table 3 and was taken from [@dataset].
+
+The education is not regularly distributed. Most participants selected "Some college or university, no certificate or degree" (approx. $500$ or $27$%). Approximately $14$% have left school at $18$ years or younger. Another $14$% have a professional certificate or diploma, which is also the average education. The remaining $45$% have a university ($25$%), masters ($15$%) or doctorate degree ($5$%).
+
+## Class (User) Balance
+
+Next, we examine the balance between users and non-users for each individual drug. We will select the top-3 drugs with the minimum difference between users and non-users.
+
+```{r class_balance}
+# Compute difference between users and non-users for each drug
+# and show the drugs with minimum difference
+data.frame(yes = colSums(users_data),
+           no = nrow(users_data) - colSums(users_data), 
+           drug = colnames(users_data)) %>%
+  summarise(diff = abs(yes - no), drug = drug) %>%
+  arrange(diff) %>%
+  head()
+```
+
+Accordingly, the drugs selected for evaluation in this report are:
+
+* **Benzodiazepines**
+* **Legal Highs**
+* **Ecstasy**
+
+## Selected Drugs
+
+For each of the selected drugs, we have compared differences between users and non-users for all ten input features (see Section 'Used Features') using box plots. For each of the selected drugs, we will show the four most discriminative features by means of the largest difference between the median of users and non-users, respectively.
+
+### Benzodiazepines
+
+```{r benzo_features, fig.cap="\\label{fig:benzo_features}Four most discriminative features for Benzodiazepines", echo = FALSE}
+benzo_plot1 + benzo_plot2 + benzo_plot3 + benzo_plot4
+```
+
+Regarding Benzodiazepines, an individual is more likely to be a user when the values for neuroticism, openness for experience, impulsiveness and sensation-seeking are greater than $0$ (see Figure \ref{fig:benzo_features}). As can be seen, the classification problem is rather hard, as none of the top-four features can exclusively separate users from non-users. For all input features, there is a large overlap between users and non-users.
+
+### Legal Highs
+
+```{r lh_features, fig.cap="\\label{fig:lh_features}Four most discriminative features for Legal Highs", echo = FALSE}
+lh_plot1 + lh_plot2 + lh_plot3 + lh_plot4
+```
+
+Regarding Legal Highs, an individual is more likely to be a user when the values for openness for experience and sensation-seeking are greater than $0$ (see Figure \ref{fig:lh_features}). Additionally, there are stronger differences between users and non-users w.r.t. the age group and the education.
+
+### Ecstasy
+
+```{r ecsta_features, fig.cap="\\label{fig:ecsta_features}Four most discriminative features for Ecstasy", echo = FALSE}
+ecsta_plot1 + ecsta_plot2 + ecsta_plot3 + ecsta_plot4
+```
+
+Regarding Ecstasy, an individual is more likely to be a user when the values for openness for experience and sensation-seeking are greater than $0$ (see Figure \ref{fig:ecsta_features}). As for Legal Highs, there are also stronger differences between users and non-users w.r.t. the age group and the education.
+
+### General Findings
+
+For nearly all input features, there is a large overlap between users and non-users. For the three evaluated drugs, individuals with larger values for openness for experience and sensation-seeking are more likely to be a user.
+
+\newpage
+
+# Methods
+
+Based on the exploratory data analysis, we will use the three drugs Benzodiazepines, Legal Highs and Ecstasy for binary classification. We will use four different types of models that each try to separate users from non-users in ten-dimensional feature space:
+
+* Boosted Generalized Linear Model (Boosted GLM)
+* *k*-Nearest-Neighbor (kNN)
+* Random Forest (RF)
+* Regularized Discriminant Analysis (RDA)
+
+These types of models were chosen because of their general applicability to binary classification problems. Boosted GLM and random forests are well-known ensemble methods that use boosting and bagging, respectively, as a powerful strategy to capture general feature-specifics from the training set.
+
+If there are strong similarities between users of a specific drug, *k*-Nearest-Neighbor classification could be a fast and accurate approach. The data set is predestinated for distance metrics because of its quantification.
+
+As a trade-off between linear discriminant analysis (LDA) and quadratic discriminant analysis (QDA), the regularized discriminant analysis (RDA) allows for quadratic decision boundaries in high-dimensional feature spaces.
+
+The underlying theories are very briefly described in the following sub-sections. Please see the respective references for further details on these model types.
+
+## Boosted Generalized Linear Model
+
+The Boosted Generalized Linear Model (Boosted GLM) was introduced and extended by [@bglm1] [@bglm2] [@bglm3]. In principle, it uses the same approach as the well-known (generalized) linear models but in an ensemble fashion.
+
+In Boosted GLM, simple component-wise -- i.e., input-feature-wise -- linear models are used as base learners. Then, gradient boosting is used to fit an ensemble model by optimizing a given loss function.
+
+For our classification problem, we use the 0-1 loss function to maximize the classification accuracy. It takes the value 0 if the prediction matches the actual class, and the value 1 if not.
+
+## *k*-Nearest-Neighbor Classification
+
+The algorithm *k*-nearest-neighbor was introduced by [@knn1] and extended by [@knn2].
+
+In this approach, no real training procedure is required. However, the parameter *k* should be optimized.
+
+For each observation to be classified, the *k*-nearest neighbors in the given training set are determined using a distance measure. Thus, normalized training data is very beneficial for this approach. As explained in the quantification sub-section of the data set description, this is already the case for the used data set. Hence in this report, we simply use the Euclidean distance.
+
+If the *k*-nearest neighbors are determined, the output class of the current test observation is given by the majority vote of these neighbors.
+
+\newpage
+
+## Random Forest
+
+A random forest (RF) is an ensemble approach using simple decision trees as base learners. It was first created by [@rf1] and later extended by [@rf2].
+
+While training, usually several hundreds of trees are learned using bagging (bootstrap aggregating). This means that, for each tree, random samples are taken with replacement from the training set -- usually a single or very few ones. Also, only a random subset of the available input features is used. This accounts for de-correlation of the trees.
+
+Having trained the trees of the random forest, the classification result of a current test observation is given by the majority class vote.
+
+## Regularized Discriminant Analysis
+
+The regularized discriminant analysis was proposed by [@rda] as a trade-off between the linear discriminant analysis (LDA) in the Fisher inpretation [@lda], where a common (pooled) covariance matrix estimate $\hat{\Sigma}$ is used, and the quadratic discriminant analysis (QDA) [@qda], where an individual covariance matrix estimate $\hat{\Sigma}_k$ per class $k$ is used. This allows for quadratic classification boundaries. The trade-off is controlled by two mixing factors $\lambda$ and $\gamma$:
+
+\begin{equation}
+\hat{\Sigma}_k (\lambda, \gamma) = (1 - \gamma)\hat{\Sigma}_k (\lambda) + \gamma \frac{1}{p} \text{tr} (\hat{\Sigma}_k (\lambda)) I
+\end{equation}
+
+where $p$ is the dimension of the measurement space. By optimizing $\lambda$ and $\gamma$, the individual covariance matrix estimates $\hat{\Sigma}_k$ are shrunken towards a pooled covariance to a respective extent.
+
+A discriminant (quadratic) score function is set up w.r.t. the distance of the current test observation and the $k$ class means as well as the estimated covariance matrices $\hat{\Sigma}_k$ for all classes $k$.
+
+To obtain the final classification, the current test observation is assigned to the class $k$ for which the final score function is largest.
+
+\newpage
+
+# Results
+
+In this section, we first describe the evaluation procedure and metrics. Afterwards, we briefly describe the results of [@dataset] and [@mahyoub] that will be used for comparison. Finally, we present an overview of the results for the three evaluated drugs Benzodiazepines, Legal Highs and Ecstasy.
+
+## Evaluation Procedure
+
+As proposed by [@mahyoub], we use $10$-fold cross-validation on the complete data set to compute the results. More specifically, we use a $10$-fold cross validation with a training/test-split of $90$%/$10$% using a fixed seed -- $2021$ with sample kind "Rounding" -- prior to every model generation to account for the repeatability of the experiments. We save the final predictions for each model and compare them to the actual observations to compute the evaluation metrics that will be described in the next sub-section. 
+
+## Evaluation Metrics
+
+For the final evaluation of the predictions, we will use the sensitivity, the specificity, the accuracy as well as the balanced accuracy. These metrics are defined as follows considering the confusion matrix:
+
+|  | True User | True Non-User |
+| :----------: | :----------: | :----------: |
+| Predicted User | True Positive (TP) | False Positive (FP) |
+| Predicted Non-User | False Negative (FN) | True Negative (TN) |
+
+Table: Confusion matrix
+
+\begin{equation}
+  \text{Sensitivity} = \frac{TP}{TP + FN}
+\end{equation}
+
+\begin{equation}
+  \text{Specificity} = \frac{TN}{TN + FP}
+\end{equation}
+
+\begin{equation}
+  \text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}
+\end{equation}
+
+\begin{equation}
+  \text{Balanced Accuracy} = \frac{\text{Sensitivity} + \text{Specificity}}{2}
+\end{equation}
+
+Sensitivity and specificity were reported by [@dataset] and used for choosing the optimal model and parameters per evaluated drug. [@mahyoub] reported accuracy, sensitivity and specificity. To account for imbalances of users and non-users, we also use the balanced accuracy which is the mean of sensitivity and specificity. We computed this metric for all comparison results.
+
+## Comparison to the State-of-the-art
+
+We will use the results provided by [@dataset] and [@mahyoub] for comparison.
+
+[@dataset] choose the best model performance by means of the maximum value of the minimum of sensitivity and specificity per drug. For the three evaluated drugs, a highly-optimized decision tree (DT) achieved the best performance. For each drug, $166$ million decision tree models were tested optimizing for the splitting criterion, the set of input features, the minimum number of instances per leaf, and the weight of the class "users". The authors have used leave-one-out cross-validation (LOOCV) for computing the final results.
+
+[@mahyoub] provides results of a decision tree (DT), a *k*-Nearest-Neighbor (kNN) classifier and a Random Forest (RF) per drug using 10-fold cross-validation.
+
+## Benzodiazepines
+
+```{r results_benzo, echo = FALSE}
+knitr::kable(benzo_results, digits = 3, caption = "Classification results for Benzodiazepines")
+```
+
+## Legal Highs
+
+```{r results_lh, echo = FALSE}
+knitr::kable(lhigh_results, digits = 3, caption = "Classification results for Legal Highs")
+```
+
+## Ecstasy
+
+```{r results_ecstasy, echo = FALSE}
+knitr::kable(ecsta_results, digits = 3, caption = "Classification results for Ecstasy")
+```
+
+# Discussion
+
+For the three evaluated drugs, our regularized discriminant analysis (RDA) model achieved the best performance in $10$-fold cross-validation out of the four tested model types -- slightly better than Boosted GLM. Compared to [@mahyoub], our RDA model outperforms their presented results by means of balanced accuracy:
+
+* 66.5% (RDA) vs. 63.5% (RF of [@mahyoub]) for Benzodiazepines
+* 79.2% (RDA) vs. 72.6% (KNN of [@mahyoub]) for Legal Highs
+* 73.2% (RDA) vs. 67.7% (KNN of [@mahyoub]) for Ecstasy
+
+Of course, these results are subject to variation w.r.t to the randomness in training/test-splits within each fold of the cross-validation. [@mahyoub] didn't provide the seed used for their experiments (if applicable). We made sure to use a fixed seed -- $2021$ with sample kind "Rounding" -- for all our experiments to account for repeatability.
+
+However, our RDA results are not as good as the results achieved with a highly-optimized decision tree (DT) by the authors of the data set [@dataset]:
+
+* 66.5% (RDA) vs. 71.2% (DT of [@dataset]) for Benzodiazepines
+* 79.2% (RDA) vs. 80.9% (DT of [@dataset]) for Legal Highs
+* 73.2% (RDA) vs. 76.7% (DT of [@dataset]) for Ecstasy
+
+In this comparison, there is a first difference in the evaluation method -- 10-fold cross-validation vs. leave-one-out cross-validation (LOOCV). In LOOCV, the randomness of training/test-splits is eliminated. For this data set, there are 1,885 folds (one for each observation) each with 1,884 training samples and 1 test sample. Thus, there is much more training data available for each fold. On the other hand, the runtime needed for completing the experiment is increased by two orders of magnitude.
+
+The next difference is related to optimization. Inter alia, [@dataset] optimized for the set of input features ending up with the following sets for the three evaluated drugs:
+
+* **Benzodiazepines**: Age, Gender, N-Score, E-Score, Impulsiveness, Sensation-Seeking
+* **Legal Highs**: Age, Gender, O-Score, A-Score, C-Score, Sensation-Seeking
+* **Ecstasy**: Age, Gender, Sensation-Seeking
+
+As can be seen above, four to seven input features were discarded in the optimal decision trees for the three evaluated drugs. Thus, using the complete set of input features for our RDA models might be sub-optimal as well.
+
+Our Boosted GLM and RDA models achieved the highest specificities (i.e., true negative rates) of all reported results.
+
+There is still room for improvement regarding our best model performance. In future work, we aim at performing a more detailed optimization of model parameters and the set of input features. Additionally, we will use LOOCV to increase comparability between our results and the ones of [@dataset]. Instead of discarding input features, we would like to present a first experiment on adding other input features in the following sub-section.
+
+## Correlation Between Drugs
+
+As presented by [@dataset], there can be a strong correlation between the user-groups of different drugs. It is also often observed in the data set that individuals are users of multiple drugs. Hence, we perform a small experiment to estimate whether the classification performance increases if we would know that the individual is a user or non-user of a correlated drug.
+
+First, we select the top-2 correlated drugs for each of the evaluated drugs:
+
+```{r drug_correlation}
+corrplot(cor(users_data))
+```
+
+According to this output, we will use the following additional input features:
+
+* **Benzodiazepines**: Amphetamine_User, Meth_User
+* **Legal Highs**: Ecstasy_User + MMushrooms_User
+* **Ecstasy**: Cocaine_User + MMushrooms_User
+
+The achieved results are presented in the following tables:
+
+### Benzodiazepines
+
+```{r results_benzo2, echo = FALSE}
+knitr::kable(benzo_results2,
+             digits = 3,
+             caption = "Experimental classification results for Benzodiazepines")
+```
+
+### Legal Highs
+
+```{r results_lh2, echo = FALSE}
+knitr::kable(lhigh_results2,
+             digits = 3,
+             caption = "Experimental classification results for Legal Highs")
+```
+
+### Ecstasy
+
+```{r results_ecstasy2, echo = FALSE}
+knitr::kable(ecsta_results2,
+             digits = 3,
+             caption = "Experimental classification results for Ecstasy")
+```
+
+These results show that knowing whether an individual is a also a user or non-user of a highly correlated drug drastically improves the classification results, in particular by increasing the specificity (true positive rate).
+
+## Model Insights
+
+Insights about RDA models are hardly to visualize from the resulting model object, i.e., which input features were the most important and where are the decision boundaries. Nevertheless, our boosted generalized linear models achieved nearly similar classification performance. We now show the variable importance of the trained models to reveal potential input features that might be discarded in future work:
+
+### Benzodiazepines
+
+```{r varimp_benzo_glm, echo = FALSE}
+varImp(benzo_glm)
+```
+
+### Legal Highs
+
+```{r varimp_lhigh_glm, echo = FALSE}
+varImp(lhigh_glm)
+```
+
+### Ecstasy
+
+```{r varimp_ecsta_glm, echo = FALSE}
+varImp(ecsta_glm)
+```
+
+It can be seen that the manually selected four most discriminant features have a non-zero variable importance for each drug, respectively. In fact, most of them are among the most important variables. The variable importance outputs show that three to four variables per drug were not able to support the classification into users and non-users. This is a starting point for further optimization in future work.
+
+# Conclusion
+
+In this report, we have performed binary classification of users and non-users for the three drugs Benzodiazepines, Legal Highs and Ecstasy on the **Drug Consumption (Quantified)** data set. We have used four types of classification models per drug: Boosted generalized linear models, *k*-nearest-neighbor, random forests and regularized discriminant analysis (RDA). Our results were also compared to the results reported by [@dataset] and [@mahyoub], respectively.
+
+Using the same input features, we achieved a better performance than [@mahyoub] for the three evaluated drugs w.r.t. to all evaluation metrics. The performance of our best model (RDA) was slightly worse than the highly optimized decision trees of [@dataset], which also determined the optimal feature selection for each drug.
+
+Overall, we have achieved balanced accuracies of 66.5%, 79.2% and 73.2% using RDA for the drugs Benzodiazepines, Legal Highs and Ecstasy, respectively.
+
+As an outlook, we provided first experimental results when using additional input features, namely whether the individual is also a user or non-user of correlated drugs, and have shown a significantly improved performance.
+
+Further improvements are expected by using an optimal input feature sub-set for each drug as well as a more sophisticated tune grid.
+
+# References
