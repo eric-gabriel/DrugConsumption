@@ -291,7 +291,7 @@ references:
   issued:
     year: 2019
 - id: dataset_uci
-  title: Drug Consumption (Quatified) at UCI Machine Learning Repository
+  title: Drug Consumption (Quantified) at UCI Machine Learning Repository
   URL: https://archive.ics.uci.edu/ml/datasets/Drug+consumption+%28quantified%29
   type: Webpage
   issued:
@@ -671,7 +671,7 @@ Having trained the trees of the random forest, the classification result of a cu
 
 ## Regularized Discriminant Analysis
 
-The regularized discriminant analysis was proposed by [@rda] as a trade-off between the linear discriminant analysis (LDA) in the Fisher inpretation [@lda], where a common (pooled) covariance matrix estimate $\hat{\Sigma}$ is used, and the quadratic discriminant analysis (QDA) [@qda], where an individual covariance matrix estimate $\hat{\Sigma}_k$ per class $k$ is used. This allows for quadratic classification boundaries. The trade-off is controlled by two mixing factors $\lambda$ and $\gamma$:
+The regularized discriminant analysis was proposed by [@rda] as a trade-off between the linear discriminant analysis (LDA) in the Fisher interpretation [@lda], where a common (pooled) covariance matrix estimate $\hat{\Sigma}$ is used, and the quadratic discriminant analysis (QDA) [@qda], where an individual covariance matrix estimate $\hat{\Sigma}_k$ per class $k$ is used. This allows for quadratic classification boundaries. The trade-off is controlled by two mixing factors $\lambda$ and $\gamma$:
 
 \begin{equation}
 \hat{\Sigma}_k (\lambda, \gamma) = (1 - \gamma)\hat{\Sigma}_k (\lambda) + \gamma \frac{1}{p} \text{tr} (\hat{\Sigma}_k (\lambda)) I
